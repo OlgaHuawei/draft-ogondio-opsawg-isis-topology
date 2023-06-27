@@ -5,23 +5,26 @@
 opsawg                                                     O. G. D. Dios
 Internet-Draft                                                Telefonica
 Intended status: Standards Track                           S. B. Giraldo
-Expires: 28 December 2023                                       V. Lopez
+Expires: 29 December 2023                                       V. Lopez
                                                                    Nokia
-                                                            26 June 2023
+                                                           D. Ceccarelli
+                                                                   Cisco
+                                                               B. Claise
+                                                                  Huawei
+                                                            27 June 2023
 
 
-A YANG Data Model for Intermediate System to intermediate System (ISIS)
+A YANG Data Model for Intermediate System to intermediate System (IS-IS)
                                 Topology
                draft-ogondio-opsawg-isis-topology-latest
 
 Abstract
 
    This document defines a YANG data model for representing an
-   abstracted view of a provider network topology that contains
-   Intermediate System to Intermediate System (ISIS) information.  This
-   document augments the 'ietf-network' data model by adding ISIS
-   concepts and explains how the data model can be used to represent
-   domains.
+   abstracted view of a network topology that contains Intermediate
+   System to Intermediate System (IS-IS).  This document augments the
+   'ietf-network' data model by adding IS-IS concepts and explains how
+   the data model can be used to represent the IS-IS topology.
 
    The YANG data model defined in this document conforms to the Network
    Management Datastore Architecture (NMDA).
@@ -41,7 +44,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 28 December 2023.
+   This Internet-Draft will expire on 29 December 2023.
 
 Copyright Notice
 
@@ -64,43 +67,47 @@ Table of Contents
      1.2.  Requirements Language
      1.3.  Tree Diagram
      1.4.  Prefix in Data Node Names
-   2.  YANG Data Model for ISIS Topology
-   3.  ISIS Topology Tree Diagram
-   4.  YANG Model for ISIS topology
-   5.  Security Considerations
-   6.  IANA Considerations
-   7.  Implementation Status
-   8.  Normative References
+   2.  Use of IETF-Topology for Representing an IP/MPLS network domain
+   3.  YANG Data Model for IS-IS Topology
+   4.  IS-IS Topology Tree Diagram
+   5.  YANG Model for IS-IS topology
+   6.  Security Considerations
+   7.  IANA Considerations
+   8.  Implementation Status
+   9.  Normative References
    Acknowledgments
    Authors' Addresses
 
 1.  Introduction
 
-   Network Operators perform the capacity planning process and run
-   analysis of what-if scenarios based on representations of the real
-   network.  Those tasks require an abstracted view of the network
-   topology with enough detail to carry out the required analysis but on
-   the other hand abstracted enough to make the analysis viable.
+   Network operators perform the capacity planning for their networks
+   and run regular what-if scenarios analisys based on representations
+   of the real network.  Those what-if analysis and capacity planning
+   processes require, among other information, a topological view
+   (domains, nodes, links, network interconnection) of the deployed
+   network.  Such topological view requires on the one hand enough
+   detail to carry out the required analysis but on the other hand
+   abstracted enough to make those analysis viable.
 
    This draft address the use case of modeling the topology of IP/MPLS
    networks that run IS-IS as IGP protocol.  The draft builds on the
    ietf-network model in [RFC8345], enhanced in [RFC8346] and [RFC8944]
    which extend the generic network and network topology data models
-   with topology attributes that are specific to Layer 3 and Layer 2.
-   However, there is not any model that exposes Intermediate System to
-   Intermediate System (ISIS) information neither tells that a specific
-   networks.  This information is required in the IP/MPLS planning
-   process to properly assess the required network resources to meet the
-   traffic demands in normal and failure scenarios.
+   with topology attributes specific to Layer 3 and Layer 2.  However,
+   there is not any model that exposes Intermediate System to
+   Intermediate System (IS-IS) specific network information.  This
+   information is required in the IP/MPLS planning process to properly
+   assess the required network resources to meet the traffic demands in
+   normal and failure scenarios.
 
-   This document defines a YANG data model for representing the ISIS
+   This document defines a YANG data model for representing the IS-IS
    topology.  The data model augments ietf-network module [RFC8345] by
-   adding the ISIS information.  The proposed Yanga data model in this
-   draft can be used to export the topology of an IP/MPLS network from a
-   Network Controller to an Operation Support System tools with the aim
-   of performing Network Planning and Visualization.
+   adding the IS-IS information.  The proposed YANG data model is used
+   to export the topology of an IP/MPLS network from a network
+   controller to an Operation Support System (OSS) tools with the aim of
+   performing network planning and visualization.
 
-   This document explains the scope and purpose of the ISIS topology
+   This document explains the scope and purpose of the IS-IS topology
    model and how the topology and service models fit together.
 
    The YANG data model defined in this document conforms to the Network
@@ -108,8 +115,8 @@ Table of Contents
 
 1.1.  Terminology and Notations
 
-   This document assumes that the reader is familiar with the contents
-   of [RFC8345].  The document uses terms from those documents.
+   This document assumes that the reader is familiar with IS-IS and the
+   contents of [RFC8345].  The document uses terms from those documents.
 
    The terminology for describing YANG data models is found in
    [RFC7950], [RFC8795] and [RFC8346].
@@ -125,7 +132,7 @@ Table of Contents
 1.3.  Tree Diagram
 
    Authors include a simplified graphical representation of the data
-   model is used in Section 3 of this document.  The meaning of the
+   model is used in Section 4 of this document.  The meaning of the
    symbols in these diagrams is defined in [RFC8340].
 
 1.4.  Prefix in Data Node Names
@@ -148,26 +155,58 @@ Table of Contents
    RFC Editor Note: Please replace XXXX with the RFC number assigned to
    this document.  Please remove this note.
 
-2.  YANG Data Model for ISIS Topology
+2.  Use of IETF-Topology for Representing an IP/MPLS network domain
+
+   IP/MPLS Networks can contain multiple domain IGP domains.  We can
+   define an IGP domain as the collection of nodes and links that
+   participate in the same IGP process.  The topology information of a
+   domain can be structured according to ietf-topology information model
+   For example, if BGP-LS is used to collect the information, the nodes
+   and links that are announced with the same combination of AS number /
+   are considered to belong to the same domain.
+
+   If a node and/or layer termination point participates in more than
+   one IGP it will be present in multiple IGP domain networks.
+
+   The ietf-network instance MUST include the following properties to
+   indicate it is a domain running an IGP instance:
+
+   A network-id that uniquely identifies such domain in the network.
+   The "network-types property should include the l3t:l3-unicast-
+   topology, to indicate it is a network in which the nodes are capable
+   of forwarding unicast packet.  Also, this draft proposed to ade a new
+   property, isis-topology, to indicate the topology being represented
+   is running an IGP process.
+
+   Also, should the topology include information such as bandwidth,
+   delay information or color, it must include tet:te-topology.  To
+   include delay and bandwdith performance measurements , MUST include
+   tet-pkt:te-packet under the previous property The supporting-network
+   property can include the network-id of a base layer-3 network.  The
+   node property should include the list of nodes as described below.
+   The ietf-network-topology:link MUST be present, with one link per
+   each IP adjacency (one link for each direction of the adjancency).
+
+3.  YANG Data Model for IS-IS Topology
 
    The abstract (base) network data model is defined in the "ietf-
    network" module of [RFC8345].  The ISIS-topology builds on the
    network data model defined in the "ietf-network" module [RFC8345],
-   augmenting the nodes with ISIS information, which anchor the links
+   augmenting the nodes with IS-IS information, which anchor the links
    and are contained in nodes).
 
    There is a set of parameters and augmentations that are included at
    the node level.  Each parameter and description are detailed
    following:
 
-   *  Network-types: Its presence identifies the ISIS topology type.
+   *  Network-types: Its presence identifies the IS-IS topology type.
       Thus, the network type MUST be isis-topology.
 
-   *  ISIS timer attributes: Identifies the node timer attributes
+   *  IS-IS timer attributes: Identifies the node timer attributes
       configured in the network element.  They are LSP lifetime and the
       LSP refresh interval.
 
-   *  ISIS status: contains the ISIS status attributes (level, area-
+   *  IS-IS status: contains the IS-IS status attributes (level, area-
       address and neighbours).
 
    There is a second set of parameters and augmentations are included at
@@ -181,10 +220,10 @@ Table of Contents
 
    *  Passive mode
 
-3.  ISIS Topology Tree Diagram
+4.  IS-IS Topology Tree Diagram
 
    Figure 1 below shows the tree diagram of the YANG data model defined
-   in module ietf-l3-isis-topology.yang (Section 4).
+   in module ietf-l3-isis-topology.yang (Section 5).
 
  module: ietf-l3-isis-topology
    augment /nw:networks/nw:network/nw:network-types:
@@ -204,9 +243,9 @@ Table of Contents
         +--rw metric?           uint64
         +--rw is-passive?       boolean
 
-                  Figure 1: ISIS Topology tree diagram
+                 Figure 1: IS-IS Topology tree diagram
 
-4.  YANG Model for ISIS topology
+5.  YANG Model for IS-IS topology
 
    This module imports types from [RFC8343] and [RFC8345].  Following
    the YANG model is presented.
@@ -261,7 +300,7 @@ Table of Contents
        Editor:   Victor Lopez
                  <mailto:victor.lopez@nokia.com>";
      description
-       "This module defines a model for Layer 3 ISIS
+       "This module defines a model for Layer 3 IS-IS
         topologies.
 
         Copyright (c) 2022 IETF Trust and the persons identified as
@@ -283,15 +322,15 @@ Table of Contents
          "Initial version";
        reference
          "RFC XXXX: A YANG Data Model for Intermediate System to
-          Intermediate System (ISIS) Topology";
+          Intermediate System (IS-IS) Topology";
      }
 
      grouping isis-topology-type {
-       description "Identifies the topology type to be ISIS.";
+       description "Identifies the topology type to be IS-IS.";
        container isis-topology {
-         presence "indicates ISIS topology";
+         presence "indicates IS-IS topology";
          description
-           "The presence of the container node indicates ISIS
+           "The presence of the container node indicates IS-IS
            topology";
        }
      }
@@ -320,7 +359,7 @@ Table of Contents
        }
        container isis-status {
          description
-           "Contains the ISIS status attributes";
+           "Contains the IS-IS status attributes";
          leaf level {
            type ietf-isis:level;
            description
@@ -350,11 +389,11 @@ Table of Contents
      }
 
      grouping isis-termination-point-attributes {
-       description "ISIS termination point scope attributes";
+       description "IS-IS termination point scope attributes";
        container isis-termination-point-attributes {
          description
          "Indicates the termination point from the
-         which the ISIS is configured. A termination
+         which the IS-IS is configured. A termination
          point can be a physical port, an interface, etc.";
 
        leaf interface-type {
@@ -409,7 +448,7 @@ Table of Contents
        when "/nw:networks/nw:network/nw:network-types/isisnt:isis-topology" {
          description
            "Augmentation parameters apply only for networks with
-           ISIS topology";
+           IS-IS topology";
        }
        description
          "Augments topology link configuration";
@@ -421,7 +460,7 @@ Table of Contents
        when "/nw:networks/nw:network/nw:network-types/isisnt:isis-topology" {
          description
            "Augmentation parameters apply only for networks with
-           ISIS topology";
+           IS-IS topology";
        }
        description
          "Augments topology termination point configuration";
@@ -430,9 +469,9 @@ Table of Contents
    }
    <CODE ENDS>
 
-                    Figure 2: ISIS Topology YANG module
+                    Figure 2: IS-IS Topology YANG module
 
-5.  Security Considerations
+6.  Security Considerations
 
    The YANG module specified in this document defines a schema for data
    that is designed to be accessed via network management protocols such
@@ -454,7 +493,7 @@ Table of Contents
    to these data nodes without proper protection can have a negative
    effect on network operations.
 
-6.  IANA Considerations
+7.  IANA Considerations
 
    This document registers the following namespace URIs in the IETF XML
    registry [RFC3688]:
@@ -476,13 +515,13 @@ Table of Contents
    reference:    RFC XXXX
    --------------------------------------------------------------------
 
-7.  Implementation Status
+8.  Implementation Status
 
    This section will be used to track the status of the implementations
    of the model.  It is aimed at being removed if the document becomes
    RFC.
 
-8.  Normative References
+9.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -588,3 +627,13 @@ Authors' Addresses
    Victor Lopez
    Nokia
    Email: victor.lopez@nokia.com
+
+
+   Daniele Ceccarelli
+   Cisco
+   Email: dceccare@cisco.com
+
+
+   Benoit Claise
+   Huawei
+   Email: benoit.claise@huawei.com
