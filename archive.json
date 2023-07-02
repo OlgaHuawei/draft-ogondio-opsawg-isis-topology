@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-06-29T01:05:35.084697+00:00",
+  "timestamp": "2023-07-02T01:10:01.450325+00:00",
   "repo": "oscargdd/draft-ogondio-opsawg-isis-topology",
   "labels": [
     {
@@ -379,13 +379,13 @@
       "labels": [],
       "body": "Added the subsection in the implementation status related to Eligthouse POC",
       "createdAt": "2023-06-28T16:44:42Z",
-      "updatedAt": "2023-06-28T16:44:43Z",
+      "updatedAt": "2023-06-29T11:27:04Z",
       "baseRepository": "oscargdd/draft-ogondio-opsawg-isis-topology",
       "baseRefName": "main",
       "baseRefOid": "5a80719a3f2c55c352143d40e5481cb076c787d8",
       "headRepository": "oscargdd/draft-ogondio-opsawg-isis-topology",
       "headRefName": "ppavon-poc-statuc",
-      "headRefOid": "b00ef583bd21a868f4f36f7a3c8afe09093f034a",
+      "headRefOid": "f3054d24ecc42b8d749a0db24bde20cd1353ffe4",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
