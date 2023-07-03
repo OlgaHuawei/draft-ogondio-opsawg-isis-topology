@@ -10,10 +10,7 @@ Expires: 4 January 2024                                         V. Lopez
                                                            D. Ceccarelli
                                                                    Cisco
                                                                B. Claise
-                                                                O. Havel
                                                                   Huawei
-                                                                P. Pavon
-                                    Universidad Politecnica de Cartegena
                                                              3 July 2023
 
 
@@ -87,6 +84,7 @@ Table of Contents
      10.1.  Normative References
      10.2.  Informative References
    Acknowledgments
+   Contributors
    Authors' Addresses
 
 1.  Introduction
@@ -732,6 +730,18 @@ Acknowledgments
    Horizon 2020 Secured autonomic traffic management for a Tera of SDN
    flows (Teraflow) project (grant agreement number 101015857).
 
+Contributors
+
+   Olga Havel
+   Huawei
+   Email: olga.havel@huawei.com
+
+
+   Pablo Pavon
+   Universidad Politecnica de Cartegena
+   Email: pablo.pavon@upct.es
+
+
 Authors' Addresses
 
    Oscar González de Dios
@@ -757,13 +767,3 @@ Authors' Addresses
    Benoit Claise
    Huawei
    Email: benoit.claise@huawei.com
-
-
-   Olga Havel
-   Huawei
-   Email: olga.havel@huawei.com
-
-
-   Pablo Pavon
-   Universidad Politecnica de Cartegena
-   Email: pablo.pavon@upct.es
