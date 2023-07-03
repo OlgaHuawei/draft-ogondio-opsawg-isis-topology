@@ -1327,7 +1327,7 @@ Please remove this note.<a href="#section-1.4-3" class="pilcrow">¶</a></p>
       <h2 id="name-use-cases">
 <a href="#section-2" class="section-number selfRef">2. </a><a href="#name-use-cases" class="section-name selfRef">Use Cases</a>
       </h2>
-<p id="section-2-1">This information is required in the IP/MPLS planning process to properly assess the required network resources to meet the traffic demands in normal and failure scenarios. Network operators perform the capacity planning for their networks and run regular what-if scenarios analizys based on representations of the real network. Those what-if analysis and capacity planning processes require, among other information, a topological view (domains, nodes, links, network interconnection) of the deployed network.<a href="#section-2-1" class="pilcrow">¶</a></p>
+<p id="section-2-1">This information is required in the IP/MPLS planning process to properly assess the required network resources to meet the traffic demands in normal and failure scenarios. Network operators perform the capacity planning for their networks and run regular what-if scenarios analysis based on representations of the real network. Those what-if analysis and capacity planning processes require, among other information, a topological view (domains, nodes, links, network interconnection) of the deployed network.<a href="#section-2-1" class="pilcrow">¶</a></p>
 <p id="section-2-2">The standardization of an abstracted view of the IS-IS topology model as NorthBound Interface (NBI) of Software Defined Networking (SDN) controllers allows the inject this information into third party tools covering specialized cases.<a href="#section-2-2" class="pilcrow">¶</a></p>
 <p id="section-2-3">The IS-IS topological model should export enough IS-IS information to permit these tools simulating the IP routing. By adding the traffic demand, ideally at the IP flow level, we can simulate the traffic growth and its effect on the routing. That is, simulating how IP-level traffic demands would be forwarded, after ISIS convergence is reached, and from there estimating, using appropriate mathematical models, related KPIs like the occupation in the links or end-to-end latencies.<a href="#section-2-3" class="pilcrow">¶</a></p>
 <p id="section-2-4">In summary, the network-wide view of the IS-IS topology enables multiple use cases:<a href="#section-2-4" class="pilcrow">¶</a></p>
@@ -1368,8 +1368,8 @@ Please remove this note.<a href="#section-1.4-3" class="pilcrow">¶</a></p>
       <h2 id="name-use-of-ietf-topology-for-re">
 <a href="#section-3" class="section-number selfRef">3. </a><a href="#name-use-of-ietf-topology-for-re" class="section-name selfRef">Use of IETF-Topology for Representing an IP/MPLS network domain</a>
       </h2>
-<p id="section-3-1">IP/MPLS Networks can contain multiple domain IGP domains. We can define an IGP domain as the collection of nodes and links that participate in the same IGP process. The topology information of a domain can be structured according to ietf-topology information model
-For example, if BGP-LS is used to collect the information, the nodes and links that are announced with the same combination of AS number / are considered to belong to the same domain.<a href="#section-3-1" class="pilcrow">¶</a></p>
+<p id="section-3-1">IP/MPLS Networks can contain multiple domain IGP domains. We can define an IGP domain as the collection of nodes and links that participate in the same IGP process. The topology information of a domain can be structured according to ietf-network-topology
+information model <span>[<a href="#RFC8345" class="cite xref">RFC8345</a>]</span>. For example, if BGP-LS is used to collect the information, the nodes and links that are announced with the same combination of AS number / are considered to belong to the same domain.<a href="#section-3-1" class="pilcrow">¶</a></p>
 <p id="section-3-2">If a node and/or layer termination point  participates in more than one IGP it will be present in multiple IGP domain networks.<a href="#section-3-2" class="pilcrow">¶</a></p>
 <p id="section-3-3">The ietf-network instance MUST include the following properties to indicate it is a domain running an IGP instance:<a href="#section-3-3" class="pilcrow">¶</a></p>
 <p id="section-3-4">A network-id that uniquely identifies such domain in the network.
@@ -1734,7 +1734,7 @@ reference:    RFC XXXX
 <a href="#section-9.1" class="section-number selfRef">9.1. </a><a href="#name-implementation-status-in-te" class="section-name selfRef">Implementation Status in Telefonica Group</a>
         </h3>
 <p id="section-9.1-1">The Yang based topology model proposed in this draft is being used today in one of the Telefonica
-   operations to export the Multi-vendor IP/MPLS topology based on multiple IS-IS areas to several
+   operations to export the Multi-vendor IP/MPLS topology based on multiple IS-IS domains to several
    Operation Support System tools for visualization, capacity planning and simulation. A commercial
    controller has implemented the exposure of the information. It is one of the building blocks to
    expose the network capabilities, together with other models which cover the inventory and service
