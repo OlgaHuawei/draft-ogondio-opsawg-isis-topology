@@ -5,13 +5,13 @@
 opsawg                                                     O. G. D. Dios
 Internet-Draft                                                Telefonica
 Intended status: Standards Track                           S. B. Giraldo
-Expires: 30 December 2023                                       V. Lopez
+Expires: 4 January 2024                                         V. Lopez
                                                                    Nokia
                                                            D. Ceccarelli
                                                                    Cisco
                                                                B. Claise
                                                                   Huawei
-                                                            28 June 2023
+                                                             3 July 2023
 
 
 A YANG Data Model for Intermediate System to intermediate System (IS-IS)
@@ -44,7 +44,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 30 December 2023.
+   This Internet-Draft will expire on 4 January 2024.
 
 Copyright Notice
 
@@ -77,10 +77,12 @@ Table of Contents
    7.  Security Considerations
    8.  IANA Considerations
    9.  Implementation Status
-   10. Huawei Digital Map PoC Status
-   11. References
-     11.1.  Normative References
-     11.2.  Informative References
+   10. Implementation Status in Telefonica Group
+   11. Huawei Digital Map PoC Status
+   12. Implementation Status in E-lighthouse Network Solutions
+   13. References
+     13.1.  Normative References
+     13.2.  Informative References
    Acknowledgments
    Authors' Addresses
 
@@ -168,7 +170,7 @@ Table of Contents
    The standardization of an abstracted view of the IS-IS topology model
    as NorthBound Interface (NBI) of Software Defined Networking (SDN)
    controllers allows the inject this information into third party tools
-   covering specialized cases
+   covering specialized cases.
 
    The IS-IS topological model should export enough IS-IS information to
    permit these tools simulating the IP routing.  By adding the traffic
@@ -599,7 +601,18 @@ Table of Contents
 
    Note to the RFC-Editor: Please remove this section before publishing.
 
-10.  Huawei Digital Map PoC Status
+10.  Implementation Status in Telefonica Group
+
+   The Yang based topology model proposed in this draft is being used
+   today in one of the Telefonica operations to export the Multi-vendor
+   IP/MPLS topology based on multiple IS-IS areas to several Operation
+   Support System tools for visualization, capacity planning and
+   simulation.  A commercial controller has implemented the exposure of
+   the information.  It is one of the building blocks to expose the
+   network capabilities, together with other models which cover the
+   inventory and service provisioning in a vendor-agnostic fashion.
+
+11.  Huawei Digital Map PoC Status
 
    As mentioned in [I-D.draft-havel-opsawg-digital-map], a Digital Map
    PoC with a real lab has been built, based on multi- vendor devices,
@@ -608,9 +621,18 @@ Table of Contents
    technologies and layers), but it needs to be further aligned with
    this latest developments in this draft.
 
-11.  References
+12.  Implementation Status in E-lighthouse Network Solutions
 
-11.1.  Normative References
+   E-lighthouse Network Solutions (https://e-lighthouse.com/)
+   implementation is consuming the IS-IS network topology information
+   exported by a commercial controller, using the Yang model proposed in
+   this draft.  It is able to simulate the network behavior under
+   different changes, covering the what-if, failure analysis,
+   dimensioning and other use cases mentioned in this draft.
+
+13.  References
+
+13.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -689,7 +711,7 @@ Table of Contents
               RFC 9130, DOI 10.17487/RFC9130, October 2022,
               <https://www.rfc-editor.org/rfc/rfc9130>.
 
-11.2.  Informative References
+13.2.  Informative References
 
    [I-D.draft-havel-opsawg-digital-map]
               Havel, O., Claise, B., de Dios, O. G., Elhassany, A.,
