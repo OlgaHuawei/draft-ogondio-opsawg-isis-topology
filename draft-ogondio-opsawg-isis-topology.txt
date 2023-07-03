@@ -77,12 +77,12 @@ Table of Contents
    7.  Security Considerations
    8.  IANA Considerations
    9.  Implementation Status
-   10. Implementation Status in Telefonica Group
-   11. Huawei Digital Map PoC Status
-   12. Implementation Status in E-lighthouse Network Solutions
-   13. References
-     13.1.  Normative References
-     13.2.  Informative References
+     9.1.  Implementation Status in Telefonica Group
+     9.2.  Huawei Digital Map PoC Status
+     9.3.  Implementation Status in E-lighthouse Network Solutions
+   10. References
+     10.1.  Normative References
+     10.2.  Informative References
    Acknowledgments
    Authors' Addresses
 
@@ -601,7 +601,7 @@ Table of Contents
 
    Note to the RFC-Editor: Please remove this section before publishing.
 
-10.  Implementation Status in Telefonica Group
+9.1.  Implementation Status in Telefonica Group
 
    The Yang based topology model proposed in this draft is being used
    today in one of the Telefonica operations to export the Multi-vendor
@@ -612,7 +612,7 @@ Table of Contents
    network capabilities, together with other models which cover the
    inventory and service provisioning in a vendor-agnostic fashion.
 
-11.  Huawei Digital Map PoC Status
+9.2.  Huawei Digital Map PoC Status
 
    As mentioned in [I-D.draft-havel-opsawg-digital-map], a Digital Map
    PoC with a real lab has been built, based on multi- vendor devices,
@@ -621,7 +621,7 @@ Table of Contents
    technologies and layers), but it needs to be further aligned with
    this latest developments in this draft.
 
-12.  Implementation Status in E-lighthouse Network Solutions
+9.3.  Implementation Status in E-lighthouse Network Solutions
 
    E-lighthouse Network Solutions (https://e-lighthouse.com/)
    implementation is consuming the IS-IS network topology information
@@ -630,9 +630,9 @@ Table of Contents
    different changes, covering the what-if, failure analysis,
    dimensioning and other use cases mentioned in this draft.
 
-13.  References
+10.  References
 
-13.1.  Normative References
+10.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -711,7 +711,7 @@ Table of Contents
               RFC 9130, DOI 10.17487/RFC9130, October 2022,
               <https://www.rfc-editor.org/rfc/rfc9130>.
 
-13.2.  Informative References
+10.2.  Informative References
 
    [I-D.draft-havel-opsawg-digital-map]
               Havel, O., Claise, B., de Dios, O. G., Elhassany, A.,
