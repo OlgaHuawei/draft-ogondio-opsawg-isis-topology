@@ -10,7 +10,10 @@ Expires: 4 January 2024                                         V. Lopez
                                                            D. Ceccarelli
                                                                    Cisco
                                                                B. Claise
+                                                                O. Havel
                                                                   Huawei
+                                                                P. Pavon
+                                    Universidad Politecnica de Cartegena
                                                              3 July 2023
 
 
@@ -753,3 +756,13 @@ Authors' Addresses
    Benoit Claise
    Huawei
    Email: benoit.claise@huawei.com
+
+
+   Olga Havel
+   Huawei
+   Email: olga.havel@huawei.com
+
+
+   Pablo Pavon
+   Universidad Politecnica de Cartegena
+   Email: pablo.pavon@upct.es
