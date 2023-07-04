@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-07-02T01:10:01.450325+00:00",
+  "timestamp": "2023-07-04T01:08:21.531021+00:00",
   "repo": "oscargdd/draft-ogondio-opsawg-isis-topology",
   "labels": [
     {
@@ -175,15 +175,15 @@
       "id": "I_kwDOJ0NkWM5p8EaX",
       "title": "Paragraph on simulation and on use cases",
       "url": "https://github.com/oscargdd/draft-ogondio-opsawg-isis-topology/issues/8",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "ppavon",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "As requested by Oscar, I include below some paragraphs related to the simulation / capacity planning and other use cases, potentially to include in a use cases section. Please see below some suggested writing:\r\n\r\nThe standardization of the NBI of SDN controllers for IP networks, permits the connection of third party tools covering specialized cases. Among them, the tools for network performance optimization, and network dimensioning and planning would benefit from retrieving from the NBI an abstracted view of the IP network topology and IGP configurations. \r\n\r\nAs for IS-IS, the NBI should export enough information to permit these tools simulating the IP routing at a macroscopic flow level. That is, simulating how IP-level traffic demands would be forwarded, after ISIS convergence is reached, and from there estimating, using appropriate mathematical models, related KPIs like the occupation in the links or end-to-end latencies. \r\n\r\nBeing able to simulate the IP demands routing, enables multiple use cases like:\r\n\r\n* What-if analysis. Estimation of the network KPIs in modified network situations. For instance, failure situations, traffic anomaly situations, addition or deletion of new adjacencies, IGP weight reconfigurations.\r\n* Failure analysis. Systematic and massive test of the network under multiple simulated failure situations, evaluating the network fault tolerance properties, and using mathematical models to derive statistical network availability metrics.\r\n* Network design & capacity planning. Dimensioning or redesign of the IP infrastructure to satisfy target KPI metrics under existing or forecasted traffic demands.\r\n\r\n",
       "createdAt": "2023-06-27T16:36:44Z",
-      "updatedAt": "2023-06-28T12:57:13Z",
-      "closedAt": null,
+      "updatedAt": "2023-07-03T15:27:49Z",
+      "closedAt": "2023-07-03T15:27:48Z",
       "comments": [
         {
           "author": "bclaise",
@@ -191,6 +191,13 @@
           "body": "In order to speed up the process, I took the freedom to take your proposal into account, modify it, add some other sections in  https://github.com/oscargdd/draft-ogondio-opsawg-isis-topology/pull/12\r\n",
           "createdAt": "2023-06-28T12:47:43Z",
           "updatedAt": "2023-06-28T12:57:13Z"
+        },
+        {
+          "author": "oscargdd",
+          "authorAssociation": "OWNER",
+          "body": "Closed as included  by Benoit",
+          "createdAt": "2023-07-03T15:27:48Z",
+          "updatedAt": "2023-07-03T15:27:48Z"
         }
       ]
     },
@@ -372,24 +379,26 @@
       "id": "PR_kwDOJ0NkWM5UKWM1",
       "title": "Update draft-ogondio-opsawg-isis-topology.md",
       "url": "https://github.com/oscargdd/draft-ogondio-opsawg-isis-topology/pull/13",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "ppavon",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Added the subsection in the implementation status related to Eligthouse POC",
       "createdAt": "2023-06-28T16:44:42Z",
-      "updatedAt": "2023-06-29T11:27:04Z",
+      "updatedAt": "2023-07-03T15:03:59Z",
       "baseRepository": "oscargdd/draft-ogondio-opsawg-isis-topology",
       "baseRefName": "main",
       "baseRefOid": "5a80719a3f2c55c352143d40e5481cb076c787d8",
       "headRepository": "oscargdd/draft-ogondio-opsawg-isis-topology",
       "headRefName": "ppavon-poc-statuc",
       "headRefOid": "f3054d24ecc42b8d749a0db24bde20cd1353ffe4",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2023-07-03T15:03:55Z",
+      "mergedAt": "2023-07-03T15:03:55Z",
+      "mergedBy": "oscargdd",
+      "mergeCommit": {
+        "oid": "82c83712d79889029310daa1409af9ae5f9908f2"
+      },
       "comments": [],
       "reviews": []
     }
