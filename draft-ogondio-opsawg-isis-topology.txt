@@ -5,13 +5,13 @@
 opsawg                                                     O. G. D. Dios
 Internet-Draft                                                Telefonica
 Intended status: Standards Track                           S. B. Giraldo
-Expires: 4 January 2024                                         V. Lopez
+Expires: 11 January 2024                                        V. Lopez
                                                                    Nokia
                                                            D. Ceccarelli
                                                                    Cisco
                                                                B. Claise
                                                                   Huawei
-                                                             3 July 2023
+                                                            10 July 2023
 
 
 A YANG Data Model for Intermediate System to intermediate System (IS-IS)
@@ -44,7 +44,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 4 January 2024.
+   This Internet-Draft will expire on 11 January 2024.
 
 Copyright Notice
 
@@ -76,13 +76,13 @@ Table of Contents
    6.  YANG Model for IS-IS topology
    7.  Security Considerations
    8.  IANA Considerations
-   9.  Implementation Status
-     9.1.  Implementation Status in Telefonica Group
-     9.2.  Huawei Digital Map PoC Status
-     9.3.  Implementation Status in E-lighthouse Network Solutions
-   10. References
-     10.1.  Normative References
-     10.2.  Informative References
+   9.  References
+     9.1.  Normative References
+     9.2.  Informative References
+   Appendix A.  Implementation Status
+     A.1.  Implementation Status in Telefonica Group
+     A.2.  Huawei Digital Map PoC Status
+     A.3.  Implementation Status in E-lighthouse Network Solutions
    Acknowledgments
    Contributors
    Authors' Addresses
@@ -599,42 +599,9 @@ Table of Contents
    reference:    RFC XXXX
    --------------------------------------------------------------------
 
-9.  Implementation Status
+9.  References
 
-   Note to the RFC-Editor: Please remove this section before publishing.
-
-9.1.  Implementation Status in Telefonica Group
-
-   The Yang based topology model proposed in this draft is being used
-   today in one of the Telefonica operations to export the Multi-vendor
-   IP/MPLS topology based on multiple IS-IS domains to several Operation
-   Support System tools for visualization, capacity planning and
-   simulation.  A commercial controller has implemented the exposure of
-   the information.  It is one of the building blocks to expose the
-   network capabilities, together with other models which cover the
-   inventory and service provisioning in a vendor-agnostic fashion.
-
-9.2.  Huawei Digital Map PoC Status
-
-   As mentioned in [I-D.draft-havel-opsawg-digital-map], a Digital Map
-   PoC with a real lab has been built, based on multi- vendor devices,
-   with [RFC8345] as the base YANG module for the topology building
-   blocks.  This PoC successfully modelled IS-IS routing (among other
-   technologies and layers), but it needs to be further aligned with
-   this latest developments in this draft.
-
-9.3.  Implementation Status in E-lighthouse Network Solutions
-
-   E-lighthouse Network Solutions (https://e-lighthouse.com/)
-   implementation is consuming the IS-IS network topology information
-   exported by a commercial controller, using the Yang model proposed in
-   this draft.  It is able to simulate the network behavior under
-   different changes, covering the what-if, failure analysis,
-   dimensioning and other use cases mentioned in this draft.
-
-10.  References
-
-10.1.  Normative References
+9.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -713,7 +680,7 @@ Table of Contents
               RFC 9130, DOI 10.17487/RFC9130, October 2022,
               <https://www.rfc-editor.org/rfc/rfc9130>.
 
-10.2.  Informative References
+9.2.  Informative References
 
    [I-D.draft-havel-opsawg-digital-map]
               Havel, O., Claise, B., de Dios, O. G., Elhassany, A.,
@@ -723,6 +690,39 @@ Table of Contents
               digital-map-00, 26 June 2023,
               <https://datatracker.ietf.org/doc/html/draft-havel-opsawg-
               digital-map-00>.
+
+Appendix A.  Implementation Status
+
+   Note to the RFC-Editor: Please remove this section before publishing.
+
+A.1.  Implementation Status in Telefonica Group
+
+   The Yang based topology model proposed in this draft is being used
+   today in one of the Telefonica operations to export the Multi-vendor
+   IP/MPLS topology based on multiple IS-IS domains to several Operation
+   Support System tools for visualization, capacity planning and
+   simulation.  A commercial controller has implemented the exposure of
+   the information.  It is one of the building blocks to expose the
+   network capabilities, together with other models which cover the
+   inventory and service provisioning in a vendor-agnostic fashion.
+
+A.2.  Huawei Digital Map PoC Status
+
+   As mentioned in [I-D.draft-havel-opsawg-digital-map], a Digital Map
+   PoC with a real lab has been built, based on multi- vendor devices,
+   with [RFC8345] as the base YANG module for the topology building
+   blocks.  This PoC successfully modelled IS-IS routing (among other
+   technologies and layers), but it needs to be further aligned with
+   this latest developments in this draft.
+
+A.3.  Implementation Status in E-lighthouse Network Solutions
+
+   E-lighthouse Network Solutions (https://e-lighthouse.com/)
+   implementation is consuming the IS-IS network topology information
+   exported by a commercial controller, using the Yang model proposed in
+   this draft.  It is able to simulate the network behavior under
+   different changes, covering the what-if, failure analysis,
+   dimensioning and other use cases mentioned in this draft.
 
 Acknowledgments
 
