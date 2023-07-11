@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-07-04T01:08:21.531021+00:00",
+  "timestamp": "2023-07-11T01:01:28.525155+00:00",
   "repo": "oscargdd/draft-ogondio-opsawg-isis-topology",
   "labels": [
     {
@@ -86,9 +86,17 @@
       "labels": [],
       "body": "\"The topology information of a domain can be structured according to ietf-topology information model\"\r\n\r\nDo we mean:\r\nThe topology information of a domain can be structured according to ietf-network-topology YANG (RFC 8345)",
       "createdAt": "2023-06-27T14:55:55Z",
-      "updatedAt": "2023-06-27T14:55:55Z",
+      "updatedAt": "2023-07-10T15:50:13Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "bclaise",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Hi Oscar, my point is that RFC 8345 is data model and not an information model. See https://datatracker.ietf.org/doc/html/rfc3444\r\n",
+          "createdAt": "2023-07-10T15:50:13Z",
+          "updatedAt": "2023-07-10T15:50:13Z"
+        }
+      ]
     },
     {
       "number": 4,
@@ -206,15 +214,15 @@
       "id": "I_kwDOJ0NkWM5p9wR0",
       "title": "Implementation Status",
       "url": "https://github.com/oscargdd/draft-ogondio-opsawg-isis-topology/issues/9",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "bclaise",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "I updated (in my temp version) the Implementation Status section with \r\n\r\n# Implementation Status\r\n\r\n   Note to the RFC-Editor: Please remove this section before publishing.\r\n\r\n# Huawei Digital Map PoC Status\r\n\r\n   As mentioned in {{?draft-havel-opsawg-digital-map}},  a Digital Map PoC with a real lab has been built, based on multi-\r\n   vendor devices, with {{!RFC8345}} as the base YANG module for the topology building blocks. This PoC successfully modelled\r\n   IS-IS routing (among other technologies and layers), but it needs to be further aligned with this latest developments in this draft.\r\n\r\n\r\nPablo, did I hear correctly about a second implementation?",
       "createdAt": "2023-06-27T21:43:28Z",
-      "updatedAt": "2023-06-28T16:14:11Z",
-      "closedAt": null,
+      "updatedAt": "2023-07-10T15:48:11Z",
+      "closedAt": "2023-07-10T15:48:11Z",
       "comments": [
         {
           "author": "ppavon",
